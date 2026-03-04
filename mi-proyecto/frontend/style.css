@@ -1,0 +1,173 @@
+/* --- VARIABLES Y CONFIGURACIÓN BASE --- */
+:root {
+    /* Tipografía optimizada para legibilidad en pantallas */
+    --pico-font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
+    
+    /* Paleta de colores principal (Indigo) */
+    --primary-color: #6366f1;
+    --primary-hover: #4f46e5;
+    
+    /* Fondo con gradiente profundo para dar sensación de seguridad/privacidad */
+    --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+    
+    /* Configuración de paneles traslúcidos (Glassmorphism) */
+    --card-bg: rgba(30, 41, 59, 0.7);
+    --card-border: rgba(255, 255, 255, 0.1);
+    
+    /* Sobrescribimos las variables de Pico.css para adaptarlo a nuestra marca */
+    --pico-primary: var(--primary-color);
+    --pico-primary-hover: var(--primary-hover);
+    --pico-color: #e2e8f0;
+    --pico-h2-color: #f8fafc;
+    --pico-h3-color: #f8fafc;
+}
+
+/* --- MODO CLARO (Soporte para accesibilidad) --- */
+[data-theme="light"] {
+    --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+    --card-bg: rgba(255, 255, 255, 0.85);
+    --card-border: rgba(0, 0, 0, 0.08);
+    --pico-color: #334155;
+    --pico-h2-color: #0f172a;
+    --pico-h3-color: #1e293b;
+    --primary-color: #4f46e5;
+    --primary-hover: #4338ca;
+}
+
+body {
+    background: var(--bg-gradient);
+    background-attachment: fixed; /* El fondo no se desplaza, mejora el efecto visual */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+/* --- BARRA DE NAVEGACIÓN (NAVBAR) --- */
+.top-nav {
+    padding: 1rem 2rem;
+    /* Efecto de desenfoque de fondo (Blur) detrás del menú */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--card-border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+/* Identidad visual (Logo) */
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.25rem;
+}
+
+/* Indicador visual de usuario logueado */
+.user-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.8rem;
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    border-radius: 20px;
+    font-size: 0.875rem;
+}
+
+/* --- COMPONENTES DE DISEÑO (GLASSMORPHISM) --- */
+.glass-panel {
+    background: var(--card-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+}
+
+/* --- SECCIÓN DE LOGIN/REGISTRO --- */
+.hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 420px;
+    padding: 2.5rem;
+}
+
+/* Gradiente en el título para un aspecto más moderno y profesional */
+.auth-header h2 {
+    background: linear-gradient(to right, #818cf8, #c084fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+/* Botones con transiciones suaves y sombras al pasar el ratón */
+.primary-btn {
+    background-color: var(--primary-color) !important;
+    border-radius: 8px !important;
+    transition: all 0.2s ease;
+}
+
+.primary-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+}
+
+/* Mensajes de error en rojo brillante para llamar la atención */
+.feedback-msg {
+    color: #ef4444;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* --- SECCIÓN DE NOTAS (GRID LAYOUT) --- */
+.notes-layout {
+    display: grid;
+    grid-template-columns: 1fr; /* Una columna en móviles */
+    gap: 2rem;
+}
+
+/* Ajuste para pantallas grandes: 350px para el formulario y el resto para las notas */
+@media (min-width: 768px) {
+    .notes-layout {
+        grid-template-columns: 350px 1fr;
+    }
+}
+
+.notes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Estilo de cada tarjeta de nota individual */
+#notes-list article {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    border-left: 4px solid var(--primary-color); /* Indicador visual lateral */
+}
+
+#notes-list article:hover {
+    transform: translateY(-5px);
+    border-color: rgba(99, 102, 241, 0.8);
+}
+
+/* --- ESTILO DE INPUTS Y TEXTAREAS --- */
+input, textarea {
+    border-radius: 8px !important;
+    background-color: rgba(0, 0, 0, 0.15) !important;
+    border: 1px solid var(--card-border) !important;
+}
+
+/* Efecto de foco para indicar dónde está escribiendo el usuario */
+input:focus, textarea:focus {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2) !important;
+}

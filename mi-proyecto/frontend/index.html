@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeNotes 🔐 - Mi Espacio Privado</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="container-fluid top-nav">
+        <ul>
+            <li>
+                <div class="brand">
+                    <span class="icon">🔐</span>
+                    <strong>SafeNotes</strong>
+                </div>
+            </li>
+        </ul>
+        <ul id="nav-user" style="display:none;" class="user-menu">
+            <li class="user-badge-container">
+                <div class="user-badge">
+                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    <span id="user-email"></span>
+                </div>
+            </li>
+            <li><button onclick="cerrarSesion()" class="outline secondary small-btn">Cerrar Sesión</button></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <section id="auth-section" class="hero-section">
+            <article class="auth-card glass-panel">
+                <header class="text-center auth-header">
+                    <h2>Bienvenido de nuevo</h2>
+                    <p>Accede a tu espacio seguro y privado.</p>
+                </header>
+                
+                <form id="login-form" novalidate>
+                    <fieldset>
+                        <label for="email">
+                            Correo Electrónico
+                            <input type="email" id="email" placeholder="ejemplo@correo.com" required autocomplete="email">
+                        </label>
+                        <label for="password">
+                            Contraseña
+                            <input type="password" id="password" placeholder="••••••••" required 
+                                   minlength="8" autocomplete="current-password">
+                            <small>Mínimo 8 caracteres (letras y números)</small>
+                        </label>
+                    </fieldset>
+
+                    <div class="auth-actions">
+                        <button type="submit" class="primary-btn">Iniciar Sesión</button>
+                        <button type="button" onclick="registrarUsuario(event)" class="outline register-btn">Crear Cuenta</button>
+                    </div>
+                </form>
+                
+                <footer class="text-center" style="margin-top: 1rem; padding: 0;">
+                    <p id="msg" class="feedback-msg"></p>
+                </footer>
+            </article>
+        </section>
+
+        <section id="notes-section" style="display:none;">
+            <div class="notes-layout">
+                
+                <div class="note-creation">
+                    <article class="glass-panel new-note-card">
+                        <header>
+                            <h3>✨ Crear Nueva Nota</h3>
+                        </header>
+                        <form id="note-form">
+                            <label for="note-title">Título</label>
+                            <input type="text" id="note-title" placeholder="Ej. Ideas..." required maxlength="50">
+
+                            <label for="note-content">Contenido</label>
+                            <textarea id="note-content" placeholder="Escribe aquí..." required maxlength="500" rows="5"></textarea>
+
+                            <button type="submit" class="primary-btn w-100">Guardar Nota</button>
+                        </form>
+                    </article>
+                </div>
+
+                <div class="notes-display">
+                    <div class="notes-header">
+                        <h2>Tus Notas Guardadas</h2>
+                        <span class="badge">Privado</span>
+                    </div>
+                    <div id="notes-list" class="notes-grid"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
