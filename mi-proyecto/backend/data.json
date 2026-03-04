@@ -1,0 +1,49 @@
+{
+  "usuarios": [
+    {
+      "id": 1772646258840,
+      "email": "robertovaras@gmail.com",
+      "password": "$2b$10$eDwh8ncNLRkEUSrkGBffMe24MNsgvokLlVkkk.mUp0JmEW0wwUHlS"
+    },
+    {
+      "id": 1772646287982,
+      "email": "hola@gmail.com",
+      "password": "$2b$10$1nqqOlPA6QAkRQVnfzF9DOPegdMwEFlVM1gyCatw/5hdhycshR6tu"
+    },
+    {
+      "id": 1772647857386,
+      "email": "robertovaras10@gmail.com",
+      "password": "$2b$10$2hdCn6OWJihTCV9O53NAL.tFrf/2uEJtaIAY12JM0hrspkRkFeWCG"
+    }
+  ],
+  "notas": [
+    {
+      "id": 1772646273951,
+      "user_id": 1772646258840,
+      "titulo": "pepe",
+      "contenido": "hola",
+      "created_at": "2026-03-04T17:44:33.951Z"
+    },
+    {
+      "id": 1772646670085,
+      "user_id": 1772646258840,
+      "titulo": "sdfsd",
+      "contenido": "lasdKFJNJOKSadhfjklaSDHBFJKLNBSADjkfnasdkjfjnkd",
+      "created_at": "2026-03-04T17:51:10.085Z"
+    },
+    {
+      "id": 1772647866995,
+      "user_id": 1772647857386,
+      "titulo": "werwer",
+      "contenido": "werwer",
+      "created_at": "2026-03-04T18:11:06.995Z"
+    },
+    {
+      "id": 1772647999955,
+      "user_id": 1772646258840,
+      "titulo": "werewr",
+      "contenido": "werwerewrewrewrew",
+      "created_at": "2026-03-04T18:13:19.955Z"
+    }
+  ]
+}
